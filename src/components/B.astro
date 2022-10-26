@@ -1,0 +1,19 @@
+---
+---
+
+<p id="b">hello</p>
+<button id="button">click</button>
+
+<script>
+  import { singleton } from "../store/index";
+
+  singleton.set("set to b");
+  const elem = document.getElementById("b") as HTMLParagraphElement;
+  elem.textContent = singleton.get().toString();
+
+  const button = document.getElementById("button") as HTMLButtonElement;
+  button.addEventListener("click", function () {
+    console.log("yee");
+    singleton.set(Math.random());
+  });
+</script>

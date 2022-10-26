@@ -1,12 +1,12 @@
 ---
-
 ---
-<p id="a">hello </p>
 
+<p id="a">hello</p>
 
 <script>
-import {singleton} from '../store/index.js';
-
-const elem = document.getElementById('a');
-elem.value = elem;
-<script>
+  import { singleton } from "../store/index.js";
+  const elem = document.getElementById("a") as HTMLParagraphElement;
+  singleton.subscribe((value) => {
+    elem.textContent = singleton.get().toString();
+  });
+</script>
